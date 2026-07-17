@@ -156,17 +156,17 @@ export default function Home() {
           </a>
           <div className="hidden md:flex gap-6">
             {[
-              { label: "cat Despre", href: "#about" },
-              { label: "ls Servicii", href: "#services" },
-              { label: "tree Portofoliu", href: "#portfolio" },
-              { label: "nano Contact", href: "#contact" },
+              { label: "cat", desc: "Despre", href: "#about" },
+              { label: "ls", desc: "Servicii", href: "#services" },
+              { label: "tree", desc: "Portofoliu", href: "#portfolio" },
+              { label: "nano", desc: "Contact", href: "#contact" },
             ].map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="font-mono text-sm text-text-dim hover:text-accent transition"
+                className="font-mono text-sm hover:text-accent transition"
               >
-                $ {item.label}
+                <span className="text-[#00ff41]">$ {item.label}</span> <span className="text-[#6b7280]">{item.desc}</span>
               </a>
             ))}
           </div>
