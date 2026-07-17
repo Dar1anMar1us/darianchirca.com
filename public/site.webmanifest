@@ -1,0 +1,12 @@
+{
+  "name": "D4r1an",
+  "short_name": "D4r1an",
+  "description": "Ethical Hacker & Full Stack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00ff41",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
