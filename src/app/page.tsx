@@ -11,7 +11,7 @@ const services = [
     tagline: "find /var/www -type f -exec assess {} \\;",
     items: [
       "Web Application Pentesting (OWASP Top 10)",
-      "Active Directory Security (Kerberos, ACL, DCSync)",
+      "Active Directory Security & Hardening",
       "Network Pentesting & Pivoting",
       "Red Team / Adversary Simulation",
     ],
@@ -53,22 +53,22 @@ const services = [
 
 const projects = [
   {
-    title: "Bible API",
-    desc: "REST API + full-text search + analytics cu hartă Leaflet. 570+ versete, SQLite, Express.",
-    tags: ["Node.js", "SQLite", "Leaflet", "Express"],
-    url: "https://bibliaortodoxa.org",
+    title: "Full Stack Web Dev",
+    desc: "Aplicatii web performante cu stack modern: MERN, LEMP, REST/GraphQL APIs, baze de date relationale si NoSQL, frontend responsive, deploy si DevOps.",
+    tags: ["React", "Node.js", "MongoDB", "PostgreSQL", "Redis", "Docker"],
+    url: "",
   },
   {
     title: "Pentesting Tools",
-    desc: "Cheatsheet-uri AD, Kerberos, Windows recon. 40+ pagini de notițe tehnice.",
-    tags: ["Active Directory", "Kerberos", "Mimikatz", "BloodHound"],
-    url: "https://github.com/Dar1anMar1us/Pentesting-Tools",
+    desc: "Cheatsheet-uri si metodologii: AD exploitation, Web, Lateral Movement, privesc Linux/Windows.",
+    tags: ["AD", "Web", "Lateral Movement", "Privesc"],
+    url: "",
   },
   {
     title: "HTB Writeups",
-    desc: "Walkthroughs detaliate: Base, Sauna, Unified, Titan Gears, Markup și altele.",
+    desc: "Walkthroughs detaliate de la easy la insane, inclusiv Pro Labs si Active Directory.",
     tags: ["HTB", "Privesc", "AD", "Web"],
-    url: "https://github.com/Dar1anMar1us/Pentesting-Tools",
+    url: "",
   },
 ];
 
@@ -314,23 +314,38 @@ export default function Home() {
           Proiecte cu care mă mîndresc
         </p>
         <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <a
-              key={p.title}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="service-card rounded-xl p-3 md:p-5 block"
-            >
-              <h3 className="font-mono text-accent text-base mb-2">{p.title}</h3>
-              <p className="text-sm text-text-dim mb-4 leading-relaxed">{p.desc}</p>
-              <div className="flex flex-wrap">
-                {p.tags.map((t) => (
-                  <Badge key={t}>{t}</Badge>
-                ))}
+          {projects.map((p) =>
+            p.url ? (
+              <a
+                key={p.title}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="service-card rounded-xl p-3 md:p-5 block"
+              >
+                <h3 className="font-mono text-accent text-base mb-2">{p.title}</h3>
+                <p className="text-sm text-text-dim mb-4 leading-relaxed">{p.desc}</p>
+                <div className="flex flex-wrap">
+                  {p.tags.map((t) => (
+                    <Badge key={t}>{t}</Badge>
+                  ))}
+                </div>
+              </a>
+            ) : (
+              <div
+                key={p.title}
+                className="service-card rounded-xl p-3 md:p-5 block"
+              >
+                <h3 className="font-mono text-accent text-base mb-2">{p.title}</h3>
+                <p className="text-sm text-text-dim mb-4 leading-relaxed">{p.desc}</p>
+                <div className="flex flex-wrap">
+                  {p.tags.map((t) => (
+                    <Badge key={t}>{t}</Badge>
+                  ))}
+                </div>
               </div>
-            </a>
-          ))}
+            )
+          )}
         </div>
       </SectionWrapper>
 
@@ -343,7 +358,7 @@ export default function Home() {
         <div className="max-w-lg">
           <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6">
             <p className="font-mono text-xs text-accent-dim mb-4">
-              $ echo &quot;Salut! Aș vrea să...&quot; &gt; /dev/null
+              $ echo "Salut! Aș vrea să..." 2&gt; /dev/null
             </p>
             <form
               action="/api/contact"
@@ -385,7 +400,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="font-mono text-xs text-text-dim hover:text-accent transition border border-[var(--border)] px-3 py-1.5 rounded hover:border-accent/30"
               >
-                $ cat linkedin.txt
+                $ more linkedin.txt | grep -i d4r1an
               </a>
             </div>
             <p className="font-mono text-xs text-text-dim mt-4 text-center">
